@@ -38,4 +38,4 @@ df.drop_duplicates(keep='first', inplace=True)
 
 # save the clean dataset into an sqlite dataset
 engine = create_engine('sqlite:///'+database_file)
-df.to_sql('message_cat', engine, index=False)
+df.to_sql('disasterresponse', engine, index=False)

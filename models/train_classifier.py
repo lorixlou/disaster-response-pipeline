@@ -26,7 +26,7 @@ modelname = argv[1]
 
 # load data from sql database
 engine = create_engine('sqlite:///'+database_file)
-df = pd.read_sql('message_cat', con=engine)
+df = pd.read_sql('disasterresponse', con=engine)
 X = df.iloc[:, 1].tolist()
 y = df.iloc[:, 4:]
 
