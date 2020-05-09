@@ -1,6 +1,8 @@
+import sys
 import pandas as pd
 import numpy as np
 import re
+
 from sqlalchemy import create_engine
 # import nltk to do nlp pipeline
 import nltk
@@ -17,9 +19,13 @@ from sklearn.multioutput import MultiOutputClassifier
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import classification_report
+import pickle
+
+database_file = argv[0]
+modelname = argv[1]
 
 # load data from sql database
-engine = create_engine('sqlite:///DisasterResponse.db')
+engine = create_engine('sqlite:///'+database_file)
 df = pd.read_sql('message_cat', con=engine)
 X = df.iloc[:, 1].tolist()
 y = df.iloc[:, 4:]
@@ -66,3 +72,7 @@ cv = GridSearchCV(pipeline, param_grid=parameters)
 
 cv.fit(X_train, y_train)
 y_pred=cv.predict(X_test)
+
+# save model as pickle file
+model_path = "./"+modelname
+pickle.dump(cv, open(model_path, 'wb'))

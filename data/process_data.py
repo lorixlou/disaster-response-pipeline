@@ -1,10 +1,15 @@
+import sys
 import numpy as np
 import pandas as pd
 from sqlalchemy import create_engine
 
+message_file = argv[0]
+categories_file = argv[1]
+database_file = argv[2]
+
 # load disaster meassages and categories csv files
-messages = pd.read_csv("disaster_messages.csv")
-categories = pd.read_csv("disaster_categories.csv")
+messages = pd.read_csv(message_file)
+categories = pd.read_csv(categories_file)
 
 # merge the messages and categories dataframes on the key = id
 df = pd.merge(messages, categories, on='id')
@@ -32,5 +37,5 @@ df = pd.concat([df, categories], axis=1)
 df.drop_duplicates(keep='first', inplace=True)
 
 # save the clean dataset into an sqlite dataset
-engine = create_engine('sqlite:///DisasterResponse.db')
+engine = create_engine('sqlite:///'+database_file)
 df.to_sql('message_cat', engine, index=False)
