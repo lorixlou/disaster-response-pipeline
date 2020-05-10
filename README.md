@@ -1,13 +1,13 @@
 # disaster-response-pipeline
 ### Table of Contents
 
-1. [Installation](#installation)
-1.1 [Pre-requirements](#requirement)
-1.2 [Data wrangling and model training](#data)
-2. [Project Motivation](#maintopic)
-3. [File Descriptions](#description)
-4. [Results](#results)
-5. [Licensing, Authors, and Acknowledgements](#license)
+[Installation](#installation)
+[Pre-requirements](#requirement)
+[Data wrangling and model training](#data)
+[Project Motivation](#maintopic)
+[File Descriptions](#description)
+[Results](#results)
+[Licensing, Authors, and Acknowledgements](#license)
 
 ## Installation<a name="installation"></a>
 ### Pre-requirements<a name="requirement"></a>
@@ -50,8 +50,11 @@ There are three folders in total.
 6. requirement file: requirements.txt
 
 ## Preview web app<a name="results"></a>
-The rendered web app of this code are available in the following link [here]()
-[Preview](/app/static/img/fullscreenshot.png)
+The rendered web app of this code are available in the following link
+
+The preview of the web app:
+![alt text](/app/static/img/fullscreenshot.png)
+
 ## Licensing, Authors, Acknowledgements<a name="license"></a>
 This code is run based on the open datasets offered by Figure8(Append) which should be given credit to.
 
