@@ -2,12 +2,19 @@
 ### Table of Contents
 
 [Installation](#installation)
+
 [Pre-requirements](#requirement)
+
 [ETL pipeline](#data)
+
 [NLP and Machine Learning pipeline](#nlpml)
+
 [Project Motivation](#maintopic)
+
 [File Descriptions](#description)
+
 [Results](#results)
+
 [Licensing, Authors, and Acknowledgements](#license)
 
 ## Installation<a name="installation"></a>
