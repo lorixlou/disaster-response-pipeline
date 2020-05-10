@@ -3,7 +3,8 @@
 
 [Installation](#installation)
 [Pre-requirements](#requirement)
-[Data wrangling and model training](#data)
+[ETL pipeline](#data)
+[NLP and Machine Learning pipeline](#nlpml)
 [Project Motivation](#maintopic)
 [File Descriptions](#description)
 [Results](#results)
@@ -21,12 +22,13 @@ This code is based on html front-end app, and Python3 back-end which requires se
 7. Plotly
 
 All requirements packages details can be found in file requirements.txt
-### Data wrangling and model training<a name="data"></a>
-In /data, run the following line to generate the database:
+### ETL pipeline<a name="data"></a>
+In /data, run the following line to run ETL pipeline that cleans data and stores in database:
 
 `python process_data.py disaster_categories.csv disaster_messages.csv database_filename.db`
 
-After the database is generated, switch to /models, run the following line to train the model:
+### NLP and Machine Learning Pipeline<a name="nlpml"></a>
+After the database is generated, switch to /models, run the following line to ML pipeline that trains classifier and saves:
 
 `python train_classifier.py ../data/database_filename.db clf_model.pkl`
 
