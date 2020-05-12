@@ -53,9 +53,7 @@ def build_model():
     ])
     # improve model
     parameters = {
-        'vect__ngram_range': ((1,1), (1,2)),
-        'tfidf__use_idf': (True, False),
-        'clf__estimator__n_estimators': [50, 100, 200]
+        'clf__estimator__n_estimators': [10, 20]
     }
 
     cv = GridSearchCV(pipeline, param_grid=parameters)
@@ -64,20 +62,20 @@ def build_model():
 
 def evaluate_model(model, X_test, Y_test, category_names):
     # test model
-    y_pred = model.predict(X_test)
+    Y_pred = model.predict(X_test)
     for i, col in enumerate(category_names):
         labels = [0, 1]
         target_names = [col+'_0', col+'_1']
-        print(classification_report(y_test.iloc[:,i], y_pred[:,i], labels=labels, target_names=target_names))
+        print(classification_report(Y_test.iloc[:,i], Y_pred[:,i], labels=labels, target_names=target_names))
 
-    print("Best Parameters for GridSearchCV", cv.best_params_)
+    print("Best Parameters for GridSearchCV", model.best_params_)
 
     return None
 
 def save_model(model, model_filepath):
     # save model as pickle file
-    model_path = "./"+modelname
-    pickle.dump(model, open(model_path, 'wb'))
+    model_path = "./"+model_filepath
+    pickle.dump(model, open(model_filepath, 'wb'))
 
     return None
 
